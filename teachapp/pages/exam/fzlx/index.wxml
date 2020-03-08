@@ -1,0 +1,32 @@
+<view>
+  <view class='page-body' wx:for="{{list}}" wx:key="id">
+      <navigator url='/pages/exam/do/index?bankId={{item.bankId}}&exerciseNum={{item.exerciseNum}}&&title={{item.bankName}}&qIndex={{item.doNum+1}}&preIndex={{index}}&trainType={{item.trainType}}&isErrorBook=false&time={{item.isTime =="1" && item.time > 0 ?item.time:-1}}&markType={{item.markType}}'>
+        <view class='item'>
+          <view class='meta'>
+            <text class='title'>{{item.bankName}}</text>
+            <block wx:if="{{ item.isTime =='1' && item.time > 0 }}">
+              <view class='artists'>
+                <text>共 {{item.time}} 分钟</text>
+              </view>
+            </block>
+          </view>
+           <view class='rating'>
+                <block wx:if="{{item.doNum == 0}}">
+                    <text class='title status-red'>未开始</text>
+                </block>
+                <block wx:elif="{{item.doNum < item.exerciseNum}}">
+                    <text class='title status-blue'>做题中</text>
+                </block>
+                <block wx:else>
+                    <text class='title status-green'>重新开始</text>
+                </block>
+              <view class='artists'>
+                <text>完成 {{item.doNum}}/{{item.exerciseNum}}</text>
+              </view>
+            </view>
+        </view>
+      </navigator>
+  </view>
+  <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+  <i-message id="message" />
+</view>

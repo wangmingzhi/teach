@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+
+    "i-button": "/component/iView/button/index",
+    "i-panel": "/component/iView/panel/index",
+    "i-input": "/component/iView/input/index",
+    "i-message": "/component/iView/message/index",
+    "i-card": "/component/iView/card/index",
+    "i-spin": "/component/iView/spin/index"
+  }
+}

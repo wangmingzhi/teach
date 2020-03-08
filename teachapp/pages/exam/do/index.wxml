@@ -1,0 +1,73 @@
+<view class="page">
+  <block wx:if="{{!isErrorBook && finish && time > 0}}">
+    <view class='time'>
+      <text>答题结束，耗时：{{}}分钟</text>
+    </view>
+  </block>
+  <block wx:elif="{{!isErrorBook && time > 0}}">
+  <view class='time'>
+      <text>剩余时间：{{time}} 分钟</text>
+    </view>
+  </block>
+  
+
+  <block wx:if="{{exercise != null}}">
+    <view class='question'>
+      <text class="select">  {{qIndex}}/{{exerciseNum}}   {{exercise.content}}</text>
+    </view>
+    <view class='page-body'>
+      <block wx:if="{{exercise.selectionA}}">
+        <view class="iterm {{click === 'A'?'active':''}} {{isNow&&right === 'A'?'color1':''}} {{isNow&&error === 'A'?'color2':'' }}" bindtap="bindClick" data-id="A">
+          <text class="sign {{!isNow&&click === 'A'?'sign0':''}} {{isNow&&right === 'A'?'sign1':''}} {{isNow&&error === 'A'?'sign2':'' }}">A</text>
+          <text class="select">  {{exercise.selectionA}}</text>
+        </view>
+      </block>
+      <block wx:if="{{exercise.selectionB}}">
+        <view class="iterm {{click === 'B'?'active':''}} {{isNow&&right === 'B'?'color1':''}} {{isNow&&error === 'B'?'color2':'' }}" bindtap="bindClick" data-id="B">
+          <text class="sign {{!isNow&&click === 'B'?'sign0':''}} {{isNow&&right === 'B'?'sign1':''}} {{isNow&&error === 'B'?'sign2':'' }}">B</text>
+          <text class="select">  {{exercise.selectionB}}</text>
+        </view>
+      </block>
+      <block wx:if="{{exercise.selectionC}}">
+        <view class="iterm {{click === 'C'?'active':''}} {{isNow&&right === 'C'?'color1':''}} {{isNow&&error === 'C'?'color2':'' }}" bindtap="bindClick" data-id="C">
+          <text class="sign {{!isNow&&click === 'C'?'sign0':''}}  {{isNow&&right === 'C'?'sign1':''}} {{isNow&&error === 'C'?'sign2':'' }}">C</text>
+          <text class="select">  {{exercise.selectionC}}</text>
+        </view>
+      </block>
+      <block wx:if="{{exercise.selectionD}}">
+        <view class="iterm {{click === 'D'?'active':''}} {{isNow&&right === 'D'?'color1':''}} {{isNow&&error === 'D'?'color2':'' }}" bindtap="bindClick" data-id="D">
+          <text class="sign {{!isNow&&click === 'D'?'sign0':''}} {{isNow&&right === 'D'?'sign1':''}} {{isNow&&error === 'D'?'sign2':'' }}">D</text>
+          <text class="select">  {{exercise.selectionD}}</text>
+        </view>
+      </block>
+    </view>
+    <view class="next">
+      <button class="btt button i-btn i-btn- {{qIndex == 1 ?'' : 'i-btn-primary'}} .i-btn-circle" bindtap="bindClickPre">上一题</button>
+      <button class="btt button i-btn i-btn- {{qIndex == exerciseNum ?'' : 'i-btn-primary'}}  .i-btn-circle" bindtap="bindClickNext">下一题</button>
+    </view>
+    <block wx:if="{{isNow&&click}}">
+      <view class="answer">
+        <text class="answertxt">解析</text>
+      </view>
+      <text class="answer1">{{exercise.answer}}</text>
+
+    </block>
+
+   <i-modal class="modal" title="{{modalTile}}" actions="{{ modalActions}}" bind:click="modalClick"  visible="{{ showModal }}" class="modal" bind:ok="handleClose2">
+     <text wx:for="{{answers}}" wx:key="id" class="answer_sign {{item.state === 1?'sign1':''}} {{item.state === 0?'sign2':'' }}" bindtap="gotoIndex" data-id="{{item.id}}">{{item.id}}</text>
+</i-modal>
+       
+  
+
+
+      <block wx:if="{{isErrorBook}}">
+        <!-- <image class="fixed" bindtap="deleteError" src="/assets/exam/delete.png"></image> -->
+      </block>
+      <block wx:elif="{{isNow || finish}}">
+        <image class="fixed" bindtap="getAswers" src="/assets/exam/list.png"></image>
+      </block>
+  </block>
+
+  <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+  <i-message id="message" />
+</view>

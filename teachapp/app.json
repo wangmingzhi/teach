@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/video/index",
+    "pages/exam/index/index",
+    "pages/exam/fzlx/index",
+    "pages/exam/do/index",
+    "pages/circle/index",
+    "pages/my/index/index",
+    "pages/user/bind/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "领才教育",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#6e6d6b",
+    "selectedColor": "#ff9966",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/assets/tabBar/index.png",
+        "selectedIconPath": "/assets/tabBar/index-select.png"
+      },
+      {
+        "pagePath": "pages/video/index",
+        "text": "视频",
+        "iconPath": "/assets/tabBar/video.png",
+        "selectedIconPath": "/assets/tabBar/video-select.png"
+      },
+      {
+        "pagePath": "pages/exam/index/index",
+        "text": "考试",
+        "iconPath": "/assets/tabBar/exam.png",
+        "selectedIconPath": "/assets/tabBar/exam-select.png"
+      },
+      {
+        "pagePath": "pages/circle/index",
+        "text": "圈子",
+        "iconPath": "/assets/tabBar/circle.png",
+        "selectedIconPath": "/assets/tabBar/circle-select.png"
+      },
+      {
+        "pagePath": "pages/my/index/index",
+        "text": "我的",
+        "iconPath": "/assets/tabBar/my.png",
+        "selectedIconPath": "/assets/tabBar/my-select.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

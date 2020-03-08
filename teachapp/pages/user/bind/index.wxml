@@ -1,0 +1,15 @@
+<form bindsubmit='formSubmit'>
+
+<i-panel title="">
+    <i-input value="{{ student.studentName }}" name="studentName" title="姓名" auto-focus="true" placeholder="请输入真实姓名" maxlength="10"/>
+    <i-input value="{{ student.phoneNo }}" name="phoneNo" type="number" maxlength="11"  title="手机号" placeholder="请输入手机号"  bindblur="inputPhoneNum"/>
+    <i-input value="{{ student.email }}" name="email" title="邮箱" placeholder="请输入邮箱" maxlength="50"  bindblur="inputemail"/>
+    <i-input value="{{ student.company }}"  name="company"  title="所在企业" maxlength="50"   />
+</i-panel>
+   <view>
+   <button class="button i-btn i-btn- i-btn-primary .i-btn-circle" form-type='submit'>保存</button>
+    </view>
+  <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+</form>
+
+<i-message id="message" />

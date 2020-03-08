@@ -1,0 +1,44 @@
+
+.page-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.item {
+  display: flex;
+  padding: 20rpx 40rpx;
+  border-bottom: 1rpx solid #eee;
+  cursor: pointer;
+}
+.item .meta{
+  flex: 1;
+}
+.item .meta .title{
+  display: block;
+  margin-bottom: 15rpx;
+  font-size: 32rpx;
+  font-weight: bold
+}
+.item .meta .artists,.item .rating .artists {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.item .rating .title{
+  display: block;
+  margin-bottom: 15rpx;
+  font-size: 30rpx;
+}
+
+.status-red{
+  color: rgb(255, 65, 129)
+}
+
+.status-blue{
+  color: rgb(63, 81, 188)
+}
+
+.status-green{
+  color: rgb(37, 255, 36)
+}
+

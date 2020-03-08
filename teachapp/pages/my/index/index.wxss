@@ -1,0 +1,23 @@
+/* pages/my/index/index.wxss */
+.my-group-margin{
+  margin-top: 10px;
+}
+.userinfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #598ce4;
+  height: 80px;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: white;
+  margin-left: 20px;
+}

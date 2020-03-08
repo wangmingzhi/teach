@@ -1,0 +1,48 @@
+.exam-tab-view {
+  margin-top: 42px;
+}
+.exam-notice{
+  margin-top: 50px;
+  font-size: 20rpx;
+}
+.typeInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 80px;
+  padding-bottom: 10px; 
+  padding-top: 10px; 
+}
+
+.typeImage {
+  width: 100rpx;
+  height: 100rpx;
+  margin-bottom: 20rpx;
+  margin-top: 20rpx
+}
+
+.typeName{
+  font-size: 28rpx
+}
+
+.listTitle{
+  font-size: 35rpx;
+  padding: 10px
+}
+
+.listTitleView {
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+
+.listView{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.divLine{
+ background: #E0E3DA;
+ width: 100%;
+ height: 3rpx;
+}

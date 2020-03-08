@@ -1,0 +1,45 @@
+<view>
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <block wx:else>
+    <view class="userinfo">
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+    <view>
+      <i-cell-group i-class="my-group-margin">
+        <i-cell title="地区" value="{{student.areaTypeName}}">
+          <i-icon type="coordinates" slot="icon" size="20" />
+        </i-cell>
+        <i-cell title="班级" value="{{student.className}}">
+          <i-icon type="collection" slot="icon" size="20" />
+        </i-cell>
+        <i-cell title="姓名" value="{{student.studentName}}" is-link url="{{editUrl}}">
+          <i-icon type="mine" slot="icon" size="20" />
+        </i-cell>
+        <i-cell title="所在企业" value="{{student.company}}" is-link url="{{editUrl}}">
+          <i-icon type="computer" slot="icon" size="20" />
+        </i-cell>
+        <i-cell title="手机号" value="{{student.phoneNo}}" is-link url="{{editUrl}}">
+          <i-icon type="mobilephone" slot="icon" size="20" />
+        </i-cell>
+        <i-cell title="邮箱" value="{{student.email}}" is-link url="{{editUrl}}">
+          <i-icon type="mail" slot="icon" size="20" />
+        </i-cell>
+        <i-cell title="状态" value="{{student.statusName}}">
+          <i-icon type="lock" slot="icon" size="20" />
+        </i-cell>
+        <i-cell title="有效期" value="{{student.expiryDate}}">
+          <i-icon type="time" slot="icon" size="20" />
+        </i-cell>
+      </i-cell-group>
+       <view>
+    <button class='button i-btn i-btn- i-btn-primary .i-btn-circle' bindtap="bindClick">{{bindButton}}</button>
+    
+  </view>
+
+    </view>
+  </block>
+</view>
+
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+<i-message id="message" />

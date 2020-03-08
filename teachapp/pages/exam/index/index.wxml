@@ -1,0 +1,45 @@
+<view>
+  <i-tabs current="{{ paperType }}" bindchange="tabChange" fixed="true">
+    <i-tab wx:for="{{trainType}}" wx:for-item="typeItem" key="{{typeItem.id}}" wx:key="id" title="{{typeItem.label}}" />
+  </i-tabs>
+  <view class="exam-tab-view">
+    <block wx:if="{{notice}}">
+      <i-notice-bar class="exam-notice" icon="systemprompt" loop closable>{{notice}}</i-notice-bar>
+    </block>
+    <i-row>
+      <i-col span="6" i-class="col-class" wx:for="{{exerciseType}}" key="{{item.id}}" wx:key="id">
+        <navigator url='/pages/exam/fzlx/index?trainType={{paperType}}&exerciseType={{item.id}}&titile={{item.label}}'>
+          <view class="typeInfo">
+            <image class="typeImage" src="/assets/exam/exercisetype/{{index}}.png" mode="cover"></image>
+            <text class="typeName">{{item.label}}</text>
+          </view>
+        </navigator>
+      </i-col>
+      <i-col span="6" i-class="col-class">
+        <navigator url='/pages/exam/do/index?qIndex=1&trainType={{paperType}}&isErrorBook=true&exerciseNum={{errorCount}}'>
+          <view class="typeInfo">
+            <i-badge count="{{errorCount}}" overflow-count="99">
+              <image bindtap="bindViewTap" class="typeImage" src="/assets/exam/exercisetype/wrong.png" mode="cover"></image>
+            </i-badge>
+            <text class="typeName">错题本</text>
+          </view>
+
+        </navigator>
+      </i-col>
+
+    </i-row>
+
+    <view class="divLine"></view>
+    <view class="listTitleView">
+      <text class="listTitle">学员成绩排行</text>
+    </view>
+    <view class="listView">
+    <i-cell-group>
+      <i-cell wx:for="{{tableData}}" wx:for-item="scoreItem" key="{{scoreItem.studentId}}" wx:key="scoreItem.studentId" title="{{scoreItem.studentName}}" value="{{scoreItem.score}}"></i-cell>
+    </i-cell-group>
+  </view>
+  </view>
+  <i-load-more tip="{{loadMoreTip}}" loading="{{loadMoreLoad}}" />
+  <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>
+  <i-message id="message" />
+</view>
